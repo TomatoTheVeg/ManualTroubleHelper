@@ -1,4 +1,5 @@
 ﻿using ManualTroubleHelper.RequestObjects;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManualTroubleHelper
@@ -8,14 +9,14 @@ namespace ManualTroubleHelper
     public class ChatController
     {
         [HttpPost("test")]
-        public List<ChatMessage> MessageTest([FromBody] ChatMessage message) 
-        { 
-            return new List<ChatMessage>() { new ChatMessage() { isRequest = true, MessageText = "Я пидор?", MessageTime = DateTime.Now}, new ChatMessage() { isRequest = false, MessageText = "Да, я пидор!", MessageTime = DateTime.Now } };
+        public void MessageTest([FromBody] ChatMessage message) 
+        {
+            return;
         }
         [HttpGet]
-        public ChatMessage GetTestMessage()
+        public List<ChatMessage> GetTestMessage()
         {
-            return new ChatMessage() {isRequest = false, MessageText = "Dura", MessageTime = DateTime.Now };
+            return new List<ChatMessage>() { new ChatMessage() { isRequest = true, MessageText = "Я пидор?", MessageTime = DateTime.Now }, new ChatMessage() { isRequest = false, MessageText = "Да, я пидор!", MessageTime = DateTime.Now } };
         }
     }
 }
