@@ -1,8 +1,8 @@
-﻿using ManualTroubleHelper.RequestObjects;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using System.Globalization;
+using ManualTroubleHelper.RequestObjects;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ManualTroubleHelper
+namespace ManualTroubleHelper.Controllers
 {
     [Route("chat")]
     [ApiController]
@@ -16,7 +16,12 @@ namespace ManualTroubleHelper
         [HttpGet]
         public List<ChatMessage> GetTestMessage()
         {
-            return new List<ChatMessage>() { new ChatMessage() { isRequest = true, MessageText = "Я пидор?", MessageTime = DateTime.Now }, new ChatMessage() { isRequest = false, MessageText = "Да, я пидор!", MessageTime = DateTime.Now } };
+            return
+            [
+                new ChatMessage() { isRequest = true, MessageText = "Я пидор?", MessageTime = DateTime.Now.ToString(CultureInfo.CurrentCulture) },
+                new ChatMessage()
+                    { isRequest = false, MessageText = "Да, я пидор!", MessageTime = DateTime.Now.ToString(CultureInfo.CurrentCulture) }
+            ];
         }
     }
 }
