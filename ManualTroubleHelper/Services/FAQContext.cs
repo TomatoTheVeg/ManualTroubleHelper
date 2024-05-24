@@ -6,7 +6,9 @@ namespace ManualTroubleHelper.Services
 {
     public class FAQContext:DbContext
     {
-        DbSet<Question> Questions { get; set; }
+        DbSet<Problem> Questions { get; init; }
+        DbSet<Solution> Solutions { get; init; }
+
         public FAQContext() {
             Database.Migrate();
         }
