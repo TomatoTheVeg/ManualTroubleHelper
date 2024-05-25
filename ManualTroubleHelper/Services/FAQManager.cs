@@ -76,8 +76,7 @@ namespace ManualTroubleHelper.Services
                 {
                     counter++;
                 }
-                counter += Regex.Matches(problem.Header, token).Count;
-                counter += Regex.Matches(problem.Content, token).Count;
+                counter += Regex.Matches(problem.Description, token).Count;
             }
             return counter;
         }
