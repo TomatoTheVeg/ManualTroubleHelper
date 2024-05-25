@@ -85,7 +85,18 @@ namespace ManualTroubleHelper.Controllers
             solution.Id = _faqManager.AddSolution(solution, problemId);
             return solution;
         }
+        
+        [HttpGet("upvote/{id}")]
+        public int Upvote(int id)
+        {
+            return _faqManager.AddUpvote(id);
+        }
 
+        [HttpGet("downvote/{id}")]
+        public int Downvote(int id)
+        {
+            return _faqManager.AddDownvote(id);
+        }
 
     }
 }
