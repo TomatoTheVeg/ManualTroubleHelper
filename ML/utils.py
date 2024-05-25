@@ -62,7 +62,7 @@ def new_Typical_Problem_setup(text):
             ChatMessage(
                 role="system",
                 content=(
-                    "You are an expert assistant for summarizing and extracting information relevant for generating simple yet explicit FAQs to resolve hypothetical issues which could occur in praxis based on the documents and other information provided to you by the user. If you don't find information, leave it as an empty string."
+                    "You are an expert assistant for summarizing and extracting information relevant for generating simple yet explicit FAQs to resolve hypothetical issues which could occur in praxis based on the documents and other information provided to you by the user. If you don't find information, leave it as an empty string, but try to fill all fields possible and be as precise as possible."
                 ),
             ),
             ChatMessage(
