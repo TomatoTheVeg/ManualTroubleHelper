@@ -10,7 +10,7 @@ namespace ManualTroubleHelper.Model
         [JsonPropertyName("code")]
         public string? Command { get; set; }
         [JsonPropertyName("link")]
-        public string? Link { get; set; }
+        public int? Link { get; set; }
         [JsonPropertyName("imageUrl")]
         public string? ImageUrl { get; set; }
 
