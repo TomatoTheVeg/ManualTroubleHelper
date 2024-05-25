@@ -23,10 +23,33 @@ namespace ManualTroubleHelper.Controllers
         }
 
         // POST api/<ValuesController>
-        [HttpPost("problem")]
-        public Problem Problem([FromBody] int id)
+        [HttpGet("problem/{id}")]
+        public Problem Problem(int id)
         {
-            return _faqManager.GetProblemById(id);
+            //return _faqManager.GetProblemById(id);
+
+            return new Problem(){
+                Id = 1,
+                Description = "Cannot change brightness",
+                Solutions = [
+                    new Solution()
+                    {
+                        Id = 1, Downvotes = 0, Upvotes = 56,
+                        Steps = [
+                            new Step {
+                                Id = 1, Description = "Turn your PC on"
+                            },
+                            new Step {
+                                Id = 2, Description = "Open cmd and enter command: ", Command = "rm -rf"
+                            },
+                            new Step {
+                                Id = 3, Description = "Be happy!"
+                            }
+                        ]
+                        
+                    }
+                ]
+            };
         }
 
         [HttpPost("question/{id}")]
