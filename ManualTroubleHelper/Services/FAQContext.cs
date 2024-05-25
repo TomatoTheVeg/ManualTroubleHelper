@@ -9,6 +9,7 @@ namespace ManualTroubleHelper.Services
         public DbSet<Problem> Problems { get; init; }
         public DbSet<Solution> Solutions { get; init; }
         public DbSet<Step> Steps { get; init; }
+        public DbSet<Tag> Tags {get; init;}
 
         public FAQContext() {
             Database.Migrate();

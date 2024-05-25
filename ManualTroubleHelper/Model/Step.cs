@@ -11,6 +11,8 @@ namespace ManualTroubleHelper.Model
         public string? Command { get; set; }
         [JsonPropertyName("imagePath")]
         public string? ImageUrl { get; set; }
+        [JsonPropertyName("link")]
+        public int? Link { get; set; }
 
         public Step() { }
     }

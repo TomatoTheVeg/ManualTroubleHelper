@@ -72,7 +72,7 @@ namespace ManualTroubleHelper.Services
             int counter = 0;
             foreach(string token in queryTokens)
             {
-                if (problem.Tags.Contains(token))
+                if (problem.Tags.Select(t => t.Text).Contains(token))
                 {
                     counter++;
                 }
@@ -84,6 +84,28 @@ namespace ManualTroubleHelper.Services
         public IEnumerable<Problem> SearchForProblem(string query)
         {
             return _context.Problems.Include(p=>p.Tags).OrderBy(p=>QueryCheck(p, query)).ToList();
+        }
+
+        public int AddUpvote(int solutionId)
+        {
+            Solution? solution = _context.Solutions.FirstOrDefault(s=>s.Id==solutionId);
+            if (solution == null)
+            {
+                return 0;
+            }
+            ++solution.Upvotes;
+            return solution.getScore();
+        }
+
+        public int AddDownvote(int solutionId)
+        {
+            Solution? solution = _context.Solutions.FirstOrDefault(s => s.Id == solutionId);
+            if (solution == null)
+            {
+                return 0;
+            }
+            ++solution.Downvotes;
+            return solution.getScore();
         }
     }
 }
