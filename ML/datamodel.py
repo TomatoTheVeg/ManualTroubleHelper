@@ -1,19 +1,19 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List
 
 class Step(BaseModel):
-    description: str
-    command: str
-    picture: str
-    link: int
+    description: str = Field(..., description="Short but full description of the step to take to resolve the issue.")
+    command: str=Field(..., description="A few lines of code from the manual, which should help at this solution step with corresponding manual page number in the comments")
+    picture: str=Field(..., description="The page number at the manual where the most important image for this step could be found")
+    link: int=Field(..., description="The number of the most important for this step page in the manual")
 
 class Solution(BaseModel):
-    steps: List[Step]
+    steps: List[Step]=Field(..., description="A short step-by-step manual based solution to the occured problem")
 
 class TypicalProblem(BaseModel):
-    description: str
-    tags: List[str]
-    solutions: List[Solution]
+    description: str=Field(..., description="Short but full description of the problem")
+    tags: List[str]=Field(..., description="Keyword tags associated with this problem")
+    solutions: List[Solution]=Field(..., description="Corresponding possible solutions to this problem")
 class QueryElement(BaseModel):
     index: int
     description: str

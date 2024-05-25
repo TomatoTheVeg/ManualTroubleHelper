@@ -11,11 +11,11 @@ import bisect
 
 
 from utils import *
+import agent as a
 
 file_path = 'errors.*'
 
 app = FastAPI()
-
 #src=pd.read_json(file_path, lines=True)
 #longFixes=pd.DataFrame(columns=['error_died', 'info_died', 'info_recovered'])
 #for s in src['name'].unique():
@@ -54,7 +54,20 @@ async def setup(file: UploadFile = File(...)):
 def process_query(query):
     return get_new_TypicalProblem(query)'''
 
+@app.post("/new_solution")
+async def return_new_solution(query: str):
+    r=""
+    with(open('data/manual.pdf', 'r') as f):
+        r=f.read()
+    return JSONResponse(content={"solution":get_new_solution(query, r)},status_code=200)#JSONResponse(content={"filename":file.filename, "message":"File uploaded successfully"},status_code=200)
 
+@app.post("/new_typical_problem")
+async def return_new_typical_problem(query: str):
+    r=""
+    with(open('data/manual.pdf', 'r') as f):
+        r = f.read()
+    return JSONResponse(content={"problem": get_new_typical_problem(query, r)},
+                        status_code=200)  # JSONResponse(content={"filename":file.filename, "message":"File uploaded successfully"},status_code=200)
 
 
 if __name__ == '__main__':

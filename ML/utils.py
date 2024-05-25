@@ -97,4 +97,73 @@ def new_Typical_Problem_setup(text):
 
     return program1(text=text), program2(text=text), program3(text=text)
 
+def get_new_solution(query, data):
+
+    prompt = ChatPromptTemplate(
+        message_templates=[
+            ChatMessage(
+                role="system",
+                content=(
+                    "You are an expert assistant for summarizing and extracting information relevant for generating simple step-by-step solutions to technical problems which happen to the user. Based on the information provided to you by the user give a step-by-step well described guide to she/him on how to solve the occured problem. Try to fill all fields possible and be as precise as possible, site where in manual can you find the corresponding solutions."
+                ),
+            ),
+            ChatMessage(
+                role="user",
+                content=(
+                    "Here is the users problem: \n"
+                    "------\n"
+                    "{query}\n"
+                    "------\n"
+                    "and here is the manual you should rely on and cite while answering the user request:\n"
+                    "------\n"
+                    "{data}\n"
+                    "------\n"
+                ),
+            ),
+        ]
+    )
+
+    program=OpenAIPydanticProgram.from_defaults(
+        output_cls=Solution,
+        llm=llm,
+        prompt=prompt,
+        verbose=True,
+    )
+
+    return program(text=query)
+
+def get_new_typical_problem(query, data):
+
+    prompt = ChatPromptTemplate(
+        message_templates=[
+            ChatMessage(
+                role="system",
+                content=(
+                    "You are expert on provided manual. Try describing the new art of problem user with the given query faced with a list of corresponding tags and with a short but exact discription of an issue. Do not list potential solutions to the problem."
+                    ),
+            ),
+            ChatMessage(
+                role="user",
+                content=(
+                    "Here is the users problem: \n"
+                    "------\n"
+                    "{query}\n"
+                    "------\n"
+                    "and here is the manual you should rely on:\n"
+                    "------\n"
+                    "{data}\n"
+                    "------\n"
+                ),
+            ),
+        ]
+    )
+
+    program=OpenAIPydanticProgram.from_defaults(
+        output_cls=TypicalProblem,
+        llm=llm,
+        prompt=prompt,
+        verbose=True,
+    )
+
+    return program(text=query)
 
