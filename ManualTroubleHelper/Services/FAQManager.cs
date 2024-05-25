@@ -21,16 +21,12 @@ namespace ManualTroubleHelper.Services
 
         public int AddSolution(Solution solution, int problemId)
         {
-            Problem problem = _context.Problems
-                .Include(p => p.Solutions) // Make sure to include Solutions in the query
-                .FirstOrDefault(p => p.Id == problemId);
-
-            if (problem == null)
+            Problem? problem = _context.Problems.FirstOrDefault(p => p.Id == problemId);
+            if(problem == null)
             {
                 return -1;
             }
-
-            // Instead of using Append, directly add to the collection
+            _context.Entry(problem).Collection(p => p.Solutions).Load();
             problem.Solutions.Add(solution);
             _context.SaveChanges();
             var sol = problem.Solutions.FirstOrDefault(s => s == solution);
@@ -50,7 +46,7 @@ namespace ManualTroubleHelper.Services
                 return new Problem();
             }
             _context.Entry(problem).Collection(p => p.Solutions).Load();
-            _context.Entry(problem).Reference(p => p.Tags).Load();
+            _context.Entry(problem).Collection(p => p.Tags).Load();
             foreach(Solution solution in problem.Solutions)
             {
                 _context.Entry(solution).Collection(s=>s.Steps).Load();

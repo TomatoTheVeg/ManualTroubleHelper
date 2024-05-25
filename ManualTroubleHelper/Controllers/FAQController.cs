@@ -76,11 +76,12 @@ namespace ManualTroubleHelper.Controllers
         }
         
         [HttpGet("upvote/{id}")]
-        public int Upvote(int id)
+        public Score Upvote(int id)
         {
-            return _faqManager.AddUpvote(id);
+            return new Score(_faqManager.AddUpvote(id));
         }
 
+<<<<<<< HEAD
         [HttpGet("test")]
         public async Task<IActionResult> Test()
         {
@@ -96,6 +97,12 @@ namespace ManualTroubleHelper.Controllers
             var responce = await client.SendAsync(request);
 
             return Ok(await responce.Content.ReadAsStringAsync());
+=======
+        [HttpGet("downvote/{id}")]
+        public Score Downvote(int id)
+        {
+            return new Score(_faqManager.AddDownvote(id));
+>>>>>>> front
         }
 
     }
