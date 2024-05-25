@@ -8,5 +8,7 @@
         public IEnumerable<Problem> SearchForProblem(string query);
         public int AddProblem(Problem problem);
         public int AddSolution(Solution solution, int problemId);
+        public int AddUpvote(int solutionId);
+        public int AddDownvote(int solutionId);
     }
 }

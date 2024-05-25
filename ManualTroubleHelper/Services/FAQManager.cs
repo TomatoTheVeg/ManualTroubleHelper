@@ -86,5 +86,27 @@ namespace ManualTroubleHelper.Services
         {
             return _context.Problems.Include(p=>p.Tags).OrderBy(p=>QueryCheck(p, query)).ToList();
         }
+
+        public int AddUpvote(int solutionId)
+        {
+            Solution? solution = _context.Solutions.FirstOrDefault(s=>s.Id==solutionId);
+            if (solution == null)
+            {
+                return 0;
+            }
+            ++solution.Upvotes;
+            return solution.getScore();
+        }
+
+        public int AddDownvote(int solutionId)
+        {
+            Solution? solution = _context.Solutions.FirstOrDefault(s => s.Id == solutionId);
+            if (solution == null)
+            {
+                return 0;
+            }
+            ++solution.Downvotes;
+            return solution.getScore();
+        }
     }
 }
