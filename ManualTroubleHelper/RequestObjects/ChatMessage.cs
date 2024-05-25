@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using ManualTroubleHelper.Model;
 
 namespace ManualTroubleHelper.RequestObjects
 {
@@ -9,6 +10,7 @@ namespace ManualTroubleHelper.RequestObjects
         [JsonPropertyName("isMe")]
         public bool isRequest { get; set; }
         [JsonPropertyName("timeSent")]
-        public DateTime MessageTime { get; set; }
+        public String MessageTime { get; set; }
+        public List<Problem>? Problems { get; set; }
     }
 }

@@ -4,8 +4,8 @@ namespace ManualTroubleHelper.Model
 {
     public class Problem
     {
-        [JsonIgnore]
         public int Id { get; set; }
+<<<<<<< HEAD
         [JsonPropertyName("header")]
         public string Header { get; set; } = "Empty problem";
         [JsonPropertyName("content")]
@@ -15,6 +15,10 @@ namespace ManualTroubleHelper.Model
         [JsonPropertyName("solutions")]
         public IEnumerable<Solution> Solutions { get; set; } = new List<Solution>();
         [JsonPropertyName("tags")]
+=======
+        public string Description { get; set; }
+        public IEnumerable<Solution>? Solutions { get; set; } = new List<Solution>();
+>>>>>>> origin/front
         public IEnumerable<string>? Tags { get; set; } = new List<string>();
         public Problem() {}
     }

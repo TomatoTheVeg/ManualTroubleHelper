@@ -1,4 +1,5 @@
 ﻿using ManualTroubleHelper.Model;
+using ManualTroubleHelper.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,18 +10,23 @@ namespace ManualTroubleHelper.Controllers
     [ApiController]
     public class FAQController : ControllerBase
     {
+        private IFAQManager _faqManager;
+
+        public FAQController(IFAQManager faqManager){
+            _faqManager = faqManager;
+        }
         // GET: api/<ValuesController>
-        [HttpGet("question/{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("search/{query}")]
+        public IEnumerable<Problem> Search(string query)
         {
-           return Ok(id);
+           return _faqManager.SearchForProblem(query);
         }
 
         // POST api/<ValuesController>
-        [HttpPost("question")]
-        public IActionResult Post([FromBody] Problem question)
+        [HttpPost("problem")]
+        public Problem Problem([FromBody] int id)
         {
-            return BadRequest();
+            return _faqManager.GetProblemById(id);
         }
 
         [HttpPost("question/{id}")]
