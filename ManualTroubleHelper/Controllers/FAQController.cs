@@ -87,15 +87,15 @@ namespace ManualTroubleHelper.Controllers
         }
         
         [HttpGet("upvote/{id}")]
-        public int Upvote(int id)
+        public Score Upvote(int id)
         {
-            return _faqManager.AddUpvote(id);
+            return new Score(_faqManager.AddUpvote(id));
         }
 
         [HttpGet("downvote/{id}")]
-        public int Downvote(int id)
+        public Score Downvote(int id)
         {
-            return _faqManager.AddDownvote(id);
+            return new Score(_faqManager.AddDownvote(id));
         }
 
     }
