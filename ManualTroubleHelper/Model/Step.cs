@@ -6,11 +6,11 @@ namespace ManualTroubleHelper.Model
     {
         public int Id { get; set; }
         [JsonPropertyName("description")]
-        public string Description { get; set; } = "";
+        public string Description { get; set; }
         [JsonPropertyName("code")]
-        public string Command { get; set; } = "";
-        [JsonPropertyName("imageUrl")]
-        public string ImageUrl { get; set; } = "";
+        public string? Command { get; set; }
+        [JsonPropertyName("imagePath")]
+        public string? ImageUrl { get; set; }
 
         public Step() { }
     }
