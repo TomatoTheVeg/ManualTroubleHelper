@@ -1,4 +1,5 @@
-﻿using ManualTroubleHelper.Model;
+﻿using System.Globalization;
+using ManualTroubleHelper.Model;
 using ManualTroubleHelper.RequestObjects;
 using ManualTroubleHelper.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -25,16 +26,59 @@ namespace ManualTroubleHelper.Controllers
         }
 
         // POST api/<ValuesController>
-        [HttpPost("problem")]
-        public Problem Problem([FromBody] int id)
+        [HttpGet("problem/{id}")]
+        public Problem Problem(int id)
         {
             return _faqManager.GetProblemById(id);
+
+            // return new Problem(){
+            //     Id = 1,
+            //     Description = "Cannot change brightness",
+            //     Solutions = [
+            //         new Solution()
+            //         {
+            //             Id = 1, Downvotes = 0, Upvotes = 56,
+            //             Steps = [
+            //                 new Step {
+            //                     Id = 1, Description = "Turn your PC on"
+            //                 },
+            //                 new Step {
+            //                     Id = 2, Description = "Open cmd and enter command: ", Command = "rm -rf"
+            //                 },
+            //                 new Step {
+            //                     Id = 3, Description = "Be happy!", ImageUrl = "https://manual.sunjet-project.de/images/max.jpg"
+            //                 }
+            //             ]
+                        
+            //         }
+            //     ]
+            // };
         }
 
-        [HttpPost("question/{id}")]
-        public IActionResult Post(int id, [FromBody] Solution solution)
+        [HttpGet("problems")]
+        public List<Problem> GetAllProblems()
         {
-            return BadRequest(id);
+            return _faqManager.GetAllProblems().ToList();
+        }
+
+        [HttpPost("problem")]
+        public Problem AddProblem([FromBody] Problem problem)
+        {
+            problem.Id = _faqManager.AddProblem(problem);
+            return problem;
+        }
+
+        [HttpPost("solution/{problemId}")]
+        public Solution AddSolution(int problemId, [FromBody] Solution solution)
+        {
+            solution.Id = _faqManager.AddSolution(solution, problemId);
+            return solution;
+        }
+        
+        [HttpGet("upvote/{id}")]
+        public int Upvote(int id)
+        {
+            return _faqManager.AddUpvote(id);
         }
 
         [HttpGet("test")]
