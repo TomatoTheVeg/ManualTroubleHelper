@@ -1,0 +1,93 @@
+	1.	Info: Performing self-diagnostics
+	•	Explanation: The robot is running a self-diagnostic check to ensure all systems are functioning properly. No action is needed unless an error is reported.
+	•	Citation: This can be inferred from the general maintenance and diagnostic capabilities described throughout the manual.
+	2.	Info: Reached goal successfully
+	•	Explanation: The robot has successfully reached its designated goal. No action is needed.
+	•	Citation: Section “ARCL Command Reference,” commands like goto and their success status messages (Page 50).
+	3.	Info: Obstacle detected, re-routing
+	•	Explanation: The robot has detected an obstacle in its path and is attempting to find an alternative route. No action is needed unless the obstacle needs to be removed.
+	•	Citation: Commands related to obstacle detection and handling, such as clearAllObstacles (Page 84).
+	4.	Info: Battery low, returning to dock
+	•	Explanation: The robot’s battery level is low, and it is autonomously returning to its docking station for recharging. Ensure the path to the docking station is clear.
+	•	Citation: Refer to battery status and docking commands such as dock (Page 104).
+	5.	Info: Docking complete, charging
+	•	Explanation: The robot has successfully docked and is now charging. No action is needed.
+	•	Citation: Docking status and related commands like dock and undock (Page 291).
+	6.	Info: Task completed successfully
+	•	Explanation: The robot has completed its assigned task without any issues. No action is needed.
+	•	Citation: General task completion status from commands like doTask (Page 105).
+	7.	Info: Awaiting new task
+	•	Explanation: The robot is idle and waiting for a new task assignment. Assign a new task to the robot if needed.
+	•	Citation: Task management commands such as queueShow (Page 247).
+	8.	Info: Network connection lost, attempting to reconnect
+	•	Explanation: The robot has lost its network connection and is trying to reconnect. Ensure the network is functioning properly.
+	•	Citation: Network connection commands and status messages (Page 91).
+	9.	Info: Path clear, resuming operation
+	•	Explanation: The robot has determined that its path is clear and is resuming its operation. No action is needed.
+	•	Citation: Commands dealing with path planning and obstacle clearance, such as clearAllObstacles (Page 84).
+	10.	Info: Emergency stop triggered
+	•	Explanation: The robot’s emergency stop has been triggered, halting all operations. Investigate the cause and reset the emergency stop to resume operations.
+	•	Citation: Emergency handling commands and statuses (Page 204).
+	11.	Info: Performing map scan
+	•	Explanation: The robot is currently performing a map scan to update its navigation data. Ensure the area is clear of obstacles for accurate mapping.
+	•	Citation: Commands related to mapping and scanning, such as scanStart (Page 269).
+	12.	Info: Low signal strength, moving to better location
+	•	Explanation: The robot is experiencing low signal strength and is moving to a location with better network coverage. Ensure there are no obstacles in its path.
+	•	Citation: Network signal commands and statuses (Page 91).
+	13.	Info: Alignment successful, ready for task
+	•	Explanation: The robot has successfully aligned itself and is ready to perform the assigned task. Assign the next task as needed.
+	•	Citation: Alignment and task-related commands (Page 105).
+	14.	Info: Idle, no pending tasks
+	•	Explanation: The robot is currently idle with no pending tasks. Assign a new task to keep the robot operational.
+	•	Citation: Task queue commands such as queueShow (Page 247).
+
+
+
+
+	To provide a solution for the error “Error: Failed going to goal,” we can follow these steps:
+
+	1.	Check for Obstacles:
+	•	Ensure there are no physical obstacles blocking the robot’s path. This can involve physically inspecting the path or using the robot’s sensors to detect and clear obstacles.
+	2.	Verify Map Accuracy:
+	•	Ensure that the map the robot is using is accurate and up-to-date. Any changes in the environment should be reflected in the robot’s map.
+	3.	Check Goal Coordinates:
+	•	Verify that the coordinates of the goal are correctly specified and reachable within the current map.
+	4.	Inspect Navigation System:
+	•	Ensure that the robot’s navigation system is functioning correctly, including its localization and path-planning algorithms.
+	5.	Review ARCL Commands:
+	•	Use relevant ARCL commands to troubleshoot and debug the issue. Commands such as goto and queueShow can help in diagnosing the problem.
+
+Relevant Sections in the Adept ARCL Reference Guide:
+
+	•	Navigating and Localizing (Page 65):
+	•	This section provides information on commands related to navigating and localizing the robot. Commands like goto and getGoals can help ensure the goal is correctly set and reachable.
+	•	Status and Error Messages (Page 50):
+	•	This section lists various status and error messages, including “Error: Failed going to goal.” It provides context for understanding the error and potential steps to resolve it.
+	•	ARCL Command Reference (Page 70):
+	•	This section contains detailed descriptions of ARCL commands. Commands like goto (Page 135) and queueShow (Page 247) are particularly relevant for diagnosing navigation errors.
+
+Specific ARCL Commands to Use:
+
+	1.	goto :
+	•	Use this command to send the robot to a specific goal.
+	•	Syntax: goto <goalName>
+	•	Example: goto DockingStation
+	2.	queueShow:
+	•	Use this command to show the current task queue and check if the goal is correctly queued.
+	•	Syntax: queueShow
+	•	Example: queueShow
+	3.	clearAllObstacles:
+	•	Use this command to clear any detected obstacles from the robot’s path.
+	•	Syntax: clearAllObstacles
+	•	Example: clearAllObstacles
+
+
+Example Solution Steps:
+
+	1.	Check for Obstacles: clearAllObstacles
+
+	2.	Verify Goal and Navigation: getGoals, goto <goalName>
+
+	3.	Review Task Queue: queueShow
+
+	By following these steps and using the relevant commands from the Adept ARCL Reference Guide, you can diagnose and resolve the “Error: Failed going to goal” issue effectively.
