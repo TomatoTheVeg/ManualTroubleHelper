@@ -1,0 +1,59 @@
+,error_died,info_died,info_recovered
+0,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_16_Links
+1,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_15_Rechts
+2,Error: Failed going to goal,Error: Failed going to goal,Teleop driving
+3,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Going to point -156762 23469
+4,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_17_Rechts
+5,WARNING: Localization score is very low!,Docking ChargeState: Not,EStop pressed
+6,WARNING: Localization score is very low!,EStop relieved but motors still disabled,Docking ChargeState: Not
+7,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_15_Rechts
+8,Error: Disengage: Moving -75 mm,Error: Disengage: Moving -75 mm,Undocked ChargeState: Not
+9,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_14_Links
+10,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Undocked ChargeState: Not
+11,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+12,Error: Failed going to goal,Error: Failed going to goal,EStop pressed
+13,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Undocked ChargeState: Not
+14,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Undocked ChargeState: Not
+15,WARNING: Localization score is very low!,Docking ChargeState: Not,EStop relieved but motors still disabled
+16,WARNING: Localization score is very low!,Undocking ChargeState: Not,EStop pressed
+17,WARNING: Localization score is very low!,Interrupted: Going to WIP_SMT_1,Interrupted: Going to WIP_SMT_1
+18,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+19,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+20,Error: Anfahrt...,Error: Anfahrt...,Error: Anfahrt...
+21,Error: Engage: Following guide,Error: Engage: Following guide,Docking ChargeState: Not
+22,Error: Disengage: Moving -70 mm,Error: Disengage: Moving -70 mm,Undocked ChargeState: Not
+23,Error: Disengage: Moving -70 mm,Error: Disengage: Moving -70 mm,Doing task wait 2
+24,Error: Disengage: Moving -70 mm,Error: Disengage: Moving -70 mm,Docking ChargeState: Not
+25,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Undocked ChargeState: Not
+26,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+27,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_16_Links
+28,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_17_Links
+29,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Undocked ChargeState: Not
+30,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Undocked ChargeState: Not
+31,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,EStop pressed
+32,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_14_Rechts
+33,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+34,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_21_Rechts
+35,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_14_Rechts
+36,Error: Failed going to goal,Error: Failed going to goal,Undocked ChargeState: Not
+37,Error: Failed going to goal,Error: Failed going to goal,EStop pressed
+38,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_15_Links
+39,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_15_Links
+40,Error: Failed going to goal,Error: Failed going to goal,Going to Linie_SMT_16_Links
+41,Error: Anfahrt...,Error: Anfahrt...,Teleop driving
+42,"Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut","Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut",Undocked ChargeState: Not
+43,Error: Anfahrt...,Error: Anfahrt...,Docking ChargeState: Not
+44,"Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut","Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut",Docking ChargeState: Not
+45,"Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut","Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut",EStop pressed
+46,"Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut","Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut",Undocked ChargeState: Not
+47,"Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut","Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut",Docking ChargeState: Not
+48,"Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut","Error: Input HasBoxes triggered, executing macro GoToS_Magazine_WIP_Leergut",Docking ChargeState: Not
+49,WARNING: Localization score is very low!,EStop pressed,Motors disabled
+50,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+51,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+52,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+53,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Undocked ChargeState: Not
+54,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Docking ChargeState: Not
+55,Error: Engage: Anfahrt...,Error: Engage: Anfahrt...,Teleop driving
+56,WARNING: Localization score is very low!,Undocking ChargeState: Not,Undocking ChargeState: Not
+57,WARNING: Localization score is very low!,Undocking ChargeState: Not,Undocking ChargeState: Not
