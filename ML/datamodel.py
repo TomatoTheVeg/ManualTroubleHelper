@@ -14,9 +14,12 @@ class TypicalProblem(BaseModel):
     description: str
     tags: List[str]
     solutions: List[Solution]
+class QueryElement(BaseModel):
+    index: int
+    description: str
 class QueryInput(BaseModel):
     query: str
-    problems: List[TypicalProblem]
+    problems: List[QueryElement]
 
 '''class StepModel(BaseModel):
     description: str

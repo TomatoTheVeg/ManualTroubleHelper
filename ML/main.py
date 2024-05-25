@@ -34,7 +34,8 @@ async def related_typical_problems(query_input: QueryInput):
             bisect.insort(result_map,[p, correspondance], key=lambda pair: -pair[1])
     result=[pair[0] for pair in result_map]
     print(result)
-    return result#[TypicalProblemModel.from_orm(res) for res in result]
+    return JSONResponse(content={"problems":result},status_code=200)#result#[TypicalProblemModel.from_orm(res) for res in result]
+#{"request", "problems":List[TypicalProblem]}
 
 @app.post("/setup")
 async def setup(file: UploadFile = File(...)):
@@ -45,11 +46,14 @@ async def setup(file: UploadFile = File(...)):
     file_path=os.path.join(upload_folder,file.filename)
     with open(file_path, 'wb') as buf:
         shutil.copyfileobj(file.file, buf)
-    return JSONResponse(content={"filename":file.filename, "message":"File uploaded successfully"},status_code=200)
+    with open(file_path, 'r') as f:
+        p1,p2,p3=new_Typical_Problem_setup(f.read())
+    return JSONResponse(content={"problems":[p1,p2,p3]},status_code=200)#JSONResponse(content={"filename":file.filename, "message":"File uploaded successfully"},status_code=200)
 
 '''@app.post("/desc")
 def process_query(query):
     return get_new_TypicalProblem(query)'''
+
 
 
 
