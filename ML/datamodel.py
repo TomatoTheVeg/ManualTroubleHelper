@@ -5,16 +5,18 @@ class Step(BaseModel):
     description: str
     command: str
     picture: str
+    link: int
+
+class Solution(BaseModel):
+    steps: List[Step]
 
 class TypicalProblem(BaseModel):
     description: str
     tags: List[str]
-    steps: List[Step]
-
+    solutions: List[Solution]
 class QueryInput(BaseModel):
     query: str
     problems: List[TypicalProblem]
-
 
 '''class StepModel(BaseModel):
     description: str
