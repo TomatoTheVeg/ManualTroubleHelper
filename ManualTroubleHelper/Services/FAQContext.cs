@@ -17,7 +17,7 @@ namespace ManualTroubleHelper.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Database=FAQDatabase");
+            optionsBuilder.UseSqlServer("Server=tcp:localhost,1433;UID=sa;PWD=zhenyasenkoSql72;TrustServerCertificate=True");
         }
     }
 

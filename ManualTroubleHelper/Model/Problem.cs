@@ -6,8 +6,8 @@ namespace ManualTroubleHelper.Model
     {
         public int Id { get; set; }
         public string Description { get; set; }
-        public IEnumerable<Solution>? Solutions { get; set; } = new List<Solution>();
-        public IEnumerable<Tag>? Tags { get; set; } = new List<Tag>();
+        public List<Solution>? Solutions { get; set; } = new List<Solution>();
+        public List<Tag>? Tags { get; set; } = new List<Tag>();
         public Problem() {}
     }
 }
