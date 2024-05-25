@@ -87,7 +87,7 @@ namespace ManualTroubleHelper.Services
 
         public IEnumerable<Problem> SearchForProblem(string query)
         {
-            return _context.Problems.Include(p=>p.Tags).OrderBy(p=>QueryCheck(p, query)).ToList();
+            return _context.Problems.Include(p=>p.Tags).ToList().OrderBy(p=>QueryCheck(p, query));
         }
 
         public int AddUpvote(int solutionId)
